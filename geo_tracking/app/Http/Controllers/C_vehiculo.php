@@ -15,7 +15,9 @@ class C_vehiculo extends Controller
      */
     public function index()
     {
-        
+        $datos['vehiculos']=M_vehiculo::all();
+        $datos['vehiculos']= M_vehiculo::where('Veh_estado','Activo')->get();
+        return view('vehiculos.index', $datos);
     }
 
     /**
@@ -25,7 +27,8 @@ class C_vehiculo extends Controller
      */
     public function create()
     {
-        return view('vehiculos/frmR');
+        $datos['conductores']=M_conductore::all();
+        return view('vehiculos.frmR', $datos);  
     }
 
     /**
@@ -38,8 +41,7 @@ class C_vehiculo extends Controller
 
      public function util(){
 
-        $datos['conductores']=M_conductore::all();
-        return view('vehiculos.frmR', $datos);  
+        
      }
 
 

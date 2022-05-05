@@ -4,7 +4,7 @@
 
 <hr>
 <br>
-<center><h3>Registrar Vehiculos</h3></center><
+<center><h3>Registrar Vehiculos</h3></center>
 <center><div class="w-25 border p-4" style="background-color: wheat;">
     <form action="{{ url('vehiculos') }}" method="POST"  enctype="multipart/form-data">
        @csrf
@@ -59,9 +59,13 @@
             <input type="number" name="año" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
+
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Estado</label>
-            <input type="text" name="estado" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <select class="form-control"  name="estado" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+             </select>
         </div>
 
         <div class="mb-3">

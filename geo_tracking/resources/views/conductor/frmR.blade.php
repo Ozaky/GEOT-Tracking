@@ -35,6 +35,14 @@
         </div>
 
         <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Estado</label>
+            <select class="form-control" name="cestado" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+             </select>
+        </div>
+
+        <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Pase</label>
             <input type="text" name="pase" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>

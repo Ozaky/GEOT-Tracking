@@ -14,6 +14,8 @@
         <th>Telefono</th>
         <th>Direccion</th>
         <th>No.Pase</th>
+        <th>Acciones</th>
+        
     </tr>
 
     @foreach ($conductores as $conductor)
@@ -24,6 +26,7 @@
             <td>{{ $conductor->Con_telefono }}</td>
             <td>{{ $conductor->Con_direccion }}</td>
             <td>{{ $conductor->Con_n_pase }}</td>
+            <td>Editar | Borrar</td>
         </tr>
     @endforeach
    

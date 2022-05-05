@@ -23,8 +23,8 @@
         <a  class="nav-link active" href="#">Mapa</a> |
         <a  class="nav-link active" href="{{ url('conductor') }}">Listar Conductores</a> |
         <a  class="nav-link active" href="{{ url('conductor/create') }}">Registrar Conductores</a> |
-        <a  class="nav-link active" href="#">Listar Vehiculo</a> |
-        <a  class="nav-link active" href="{{ route('aa') }}">Registrar Vehiculos</a>
+        <a  class="nav-link active" href="{{ url('vehiculos') }}">Listar Vehiculo</a> |
+        <a  class="nav-link active" href="{{ url('vehiculos/create') }}">Registrar Vehiculos</a>
       </div>
     </div>
   </div>

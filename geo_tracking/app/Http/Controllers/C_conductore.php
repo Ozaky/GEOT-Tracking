@@ -15,6 +15,7 @@ class C_conductore extends Controller
     public function index()
     {
         $datos['conductores']=M_conductore::all();
+        $datos['conductores']= M_conductore::where('Con_estado','Activo')->get();
         return view('conductor.index', $datos);
     }
 
@@ -50,6 +51,7 @@ class C_conductore extends Controller
           $r->Con_apellido = $request->apellido;
           $r->Con_telefono = $request->telefono;
           $r->Con_direccion = $request->direccion;
+          $r->Con_estado = $request->cestado;
           $r->Con_n_pase = $request->pase;
           $r->Con_c_pase = $request->cpase;
           $r->Con_n_documento = $request->cedula;

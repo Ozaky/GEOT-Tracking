@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('Con_apellido');
             $table->bigInteger('Con_telefono');
             $table->string('Con_direccion');
+            $table->string('Con_estado');
             $table->bigInteger('Con_n_pase');
             $table->string('Con_c_pase');
             $table->bigInteger('Con_n_documento');
