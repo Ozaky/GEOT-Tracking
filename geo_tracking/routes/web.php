@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('inicio.index');
 //});
 
-Route::view('/', 'inicio/index');
+Route::view('/', 'inicio/index')->middleware('auth');
 
 Route::view('/login', 'login');
 
@@ -40,9 +40,9 @@ Route::post('login', function (){
 
 Route::delete('conductor/{Con_id}', [C_conductore::class, 'destroy'])->name('aa');
 
-Route::resource('conductor', C_conductore::class);
+Route::resource('conductor', C_conductore::class)->middleware('auth');
 
-Route::resource('vehiculos', C_vehiculo::class);
+Route::resource('vehiculos', C_vehiculo::class)->middleware('auth');
 
-Route::resource('ruta', C_ruta::class);
+Route::resource('ruta', C_ruta::class)->middleware('auth');
 
