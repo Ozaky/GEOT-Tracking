@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('m_vehiculos', function (Blueprint $table) {
             $table->engine="InnoDB";
 
-            $table->bigIncrements('Veh_id');
+            $table->id();
             $table->bigInteger('Veh_Con_id')->unsigned();
             $table->bigInteger('Veh_documento');
 
@@ -39,7 +39,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('Veh_Con_id')->references('Con_id')->on('m_conductores')->onDelete("cascade");
+            $table->foreign('Veh_Con_id')->references('id')->on('m_conductores')->onDelete("cascade");
         });
     }
 

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('m_conductores', function (Blueprint $table) {
             $table->engine="InnoDB";
 
-            $table->bigIncrements('Con_id');
+            $table->id();
 
             $table->string('Con_nombre');
             $table->string('Con_apellido');

@@ -20,13 +20,19 @@
 
     @foreach ($conductores as $conductor)
         <tr>
-            <td>{{ $conductor->Con_id }}</td>
+            <td>{{ $conductor->id }}</td>
             <td>{{ $conductor->Con_nombre }}</td>
             <td>{{ $conductor->Con_apellido }}</td>
             <td>{{ $conductor->Con_telefono }}</td>
             <td>{{ $conductor->Con_direccion }}</td>
             <td>{{ $conductor->Con_n_pase }}</td>
-            <td>Editar | Borrar</td>
+            <td> 
+
+                <a href="{{ url('/conductor/'.$conductor->id.'/edit') }}">
+                   Editar
+                </a>
+
+            </td>
         </tr>
     @endforeach
    

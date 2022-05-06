@@ -31,6 +31,10 @@ class C_vehiculo extends Controller
         return view('vehiculos.frmR', $datos);  
     }
 
+    public function mostrar()
+    {
+       
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -38,11 +42,6 @@ class C_vehiculo extends Controller
      * @return \Illuminate\Http\Response
      * 
      */
-
-     public function util(){
-
-        
-     }
 
 
     public function store(Request $request)
@@ -96,6 +95,10 @@ class C_vehiculo extends Controller
     public function edit($id)
     {
         //
+        $vehiculo=M_vehiculo::findOrFail($id);
+        $datos['conductores']=M_conductore::all();
+        
+        return view('vehiculos/frmE', compact('vehiculo'), $datos );
     }
 
     /**
@@ -108,6 +111,12 @@ class C_vehiculo extends Controller
     public function update(Request $request, $id)
     {
         //
+        $vehiculos = request()->except('_token','_method');
+        M_vehiculo::where('id','=', $id)->update($vehiculos);
+
+        $vehiculo=M_vehiculo::findOrFail($id);
+
+        return view('vehiculos.frmE', compact('vehiculo') );
     }
 
     /**

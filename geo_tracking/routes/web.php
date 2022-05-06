@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('inicio.index');
 });
 
-Route::get('ejemplo', [C_vehiculo::class, 'util'])->name('aa');
+Route::delete('conductor/{Con_id}', [C_conductore::class, 'destroy'])->name('aa');
 
 Route::resource('conductor', C_conductore::class);
 

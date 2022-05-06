@@ -4,20 +4,16 @@
 
 <hr>
 <br>
-<center><h3>Registrar Vehiculos</h3></center>
+<center><h3>Editar Vehiculos</h3></center>
 <center><div class="w-25 border p-4" style="background-color: wheat;">
-    <form action="{{ url('vehiculos') }}" method="POST"  enctype="multipart/form-data">
+    <form action="{{ url('/vehiculos/'.$vehiculo->id) }}" method="POST" enctype="multipart/form-data">
        @csrf
 
-       @if (session()->has('info'))
-
-    <div class="alert alert-success">{{ session('info') }}</div>
-
-      @endif
+       {{ method_field('PATCH') }}
         
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre Conductor</label>
-            <select name="idconductor" class="form-control"  >
+            <select name="Veh_Con_id" class="form-control"  >
                             
                  @foreach ($conductores as $conductor)
                         
@@ -34,7 +30,7 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Numero Documento</label>
-            <select name="ndocumento" type="number" class="form-control"  >
+            <select name="Veh_documento" type="number" class="form-control"  >
                             
                  @foreach ($conductores as $conductor)
                         
@@ -51,18 +47,18 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Modelo</label>
-            <input type="text" name="modelo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="Veh_modelo" value="{{ $vehiculo->Veh_modelo }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Año</label>
-            <input type="number" name="año" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="number" name="Veh_año" value="{{ $vehiculo->Veh_año }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Estado</label>
-            <select class="form-control"  name="estado" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <select class="form-control" value="{{ $vehiculo->Veh_estado }}" name="Veh_estado" id="exampleInputEmail1" aria-describedby="emailHelp">
                         <option value="Activo">Activo</option>
                         <option value="Inactivo">Inactivo</option>
              </select>
@@ -70,40 +66,43 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Matricula</label>
-            <input type="text" name="matricula" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="Veh_matricula" value="{{ $vehiculo->Veh_matricula }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Placa</label>
-            <input type="text" name="placa" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="Veh_placa" value="{{ $vehiculo->Veh_placa }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Soat</label>
-            <input type="text" name="soat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="Veh_soat" value="{{ $vehiculo->Veh_soat }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tecnomecanica</label>
-            <input type="text" name="tecnomecanica" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="Veh_tecnomecanica" value="{{ $vehiculo->Veh_tecnomecanica}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Cargar Soat</label>
-            <input type="file" name="csoat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ $vehiculo->Veh_c_soat }}
+            <input type="file" name="Veh_c_soat" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Cargar Tecnomecanica</label>
-            <input type="file" name="ctecno" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ $vehiculo->Veh_c_t_mecanica }}
+            <input type="file" name="Veh_c_t_mecanica" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Cargar Tarjeta Propiedad</label>
-            <input type="file" name="ctpro" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            {{ $vehiculo->Veh_c_t_propiedad }}
+            <input type="file" name="Veh_c_t_propiedad" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Actualizar Vehiculo</button>
     </form>
 </div></center>
 

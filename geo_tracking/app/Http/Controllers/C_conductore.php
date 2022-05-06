@@ -68,7 +68,21 @@ class C_conductore extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
+     * 
+     * 
      */
+
+    public function util($id){
+
+       // $inactivo = "Inactivo";
+        //M_conductore::where('Con_id', '=', $id)->update('Con_estado', '=', $inactivo);
+
+       // return print('Actualizado');
+        
+    }
+
+
     public function show($id)
     {
         //
@@ -82,7 +96,8 @@ class C_conductore extends Controller
      */
     public function edit($id)
     {
-        //
+        $conductor=M_conductore::findOrFail($id);
+        return view('conductor/frmE', compact('conductor') );
     }
 
     /**
@@ -94,7 +109,12 @@ class C_conductore extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $conductores = request()->except('_token','_method');
+        M_conductore::where('id','=', $id)->update($conductores);
+
+        $conductor=M_conductore::findOrFail($id);
+
+        return view('conductor.frmE', compact('conductor') );
     }
 
     /**
@@ -103,8 +123,10 @@ class C_conductore extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+   
+
+   
     }
 }
