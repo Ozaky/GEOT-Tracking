@@ -113,10 +113,10 @@ class C_vehiculo extends Controller
         //
         $vehiculos = request()->except('_token','_method');
         M_vehiculo::where('id','=', $id)->update($vehiculos);
-
+        //$datos['conductores']=M_conductore::all();
         $vehiculo=M_vehiculo::findOrFail($id);
 
-        return view('vehiculos.frmE', compact('vehiculo') );
+        return redirect('/vehiculos');
     }
 
     /**

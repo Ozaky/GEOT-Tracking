@@ -3,6 +3,7 @@
 use App\Http\Controllers\C_conductore;
 use App\Http\Controllers\C_ruta;
 use App\Http\Controllers\C_vehiculo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio.index');
-});
+//Route::get('/', function () {
+//    return view('inicio.index');
+//});
+
+Route::view('/', 'inicio/index');
+
+Route::view('/login', 'login');
+
+Route::post('login', function (){
+
+    $credentials = request()->only('email', 'password');
+
+    request()->session()->regenerate();
+    if(Auth::attempt($credentials)){
+        return redirect('/');
+       }
+       return redirect('login');
+  });
+
+
 
 Route::delete('conductor/{Con_id}', [C_conductore::class, 'destroy'])->name('aa');
 
@@ -27,3 +45,4 @@ Route::resource('conductor', C_conductore::class);
 Route::resource('vehiculos', C_vehiculo::class);
 
 Route::resource('ruta', C_ruta::class);
+
